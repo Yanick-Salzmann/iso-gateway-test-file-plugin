@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>ch.yanick.experiments.msg-regression-plugin</id>
+    <name>ISO Gateway Test File Language</name>
+    <vendor email="yanick.salzmann@gmail.com" url="https://www.github.com">Yanick Salzmann</vendor>
+
+    <description><![CDATA[
+    Plugin that allows parsing test case files for regression tests of the ISO Gateway
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <lang.syntaxHighlighterFactory language="iso-gateway-test-file-language-id" implementationClass="ch.yanick.experiments.parsing.IsoTestFileSyntaxHighlighterFactory"/>
+        <fileType name="ISO Gateway Test File" implementationClass="ch.yanick.experiments.IsoGatewayTestFileType" language="iso-gateway-test-file-language-id"/>
+        <languageInjector implementation="ch.yanick.experiments.injection.IsoGwLanguageInjection" id="iso-gw-xml-injector"/>
+        <lang.parserDefinition language="iso-gateway-test-file-language-id" implementationClass="ch.yanick.experiments.parsing.IsoGatewayParsingDefinition"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
